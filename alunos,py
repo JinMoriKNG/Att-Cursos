@@ -1,0 +1,9 @@
+alunos = ['Rafaela', 'Cleber', 'Atreus', 'Mori',  'Bruno']
+
+print(alunos[1])
+print(alunos[3])
+
+print('='*40)
+
+for alunos in alunos:
+    print(alunos)
