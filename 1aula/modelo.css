@@ -1,0 +1,24 @@
+body {
+    margin: 50px;
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    background-color: rgb(180, 195, 7);
+    margin: 15%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 25px 15px 10px 10px;
+}
+
+button {
+    background-color: aqua;
+    width: 200px;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
