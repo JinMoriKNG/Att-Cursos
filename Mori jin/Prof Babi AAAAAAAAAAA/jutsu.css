@@ -1,0 +1,93 @@
+
+@font-face{
+    font-family: 'Valorant';
+    src: url('/font/Valorant Font.ttf') format('truetype')
+    
+}
+
+@font-face{
+    font-family: 'Valorant-subtexto';
+    src: url('../font/FontsFree-Net-Tungsten-Bold.ttf') format('truetype')
+}
+
+header {
+    font-family: 'Valorant-subtexto';
+    font-weight: lighter ;
+    font-size: 50px;
+    color: white;
+    background-color: black;
+    width: 1318px; 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+body {
+    justify-items: center;
+    margin-top: 100px;
+    background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7f7ed6e67906d7747be88529a305f6e78c06dea9-1920x1080.jpg?auto=format&fit=fill&q=80&w=1920);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+h1 {
+    font-family: "Valorant";
+}
+
+.caixa {
+    background-color: rgba(12, 13, 13, 0.596);
+    padding: 50px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+
+
+}
+
+#mapas {
+    font-size: 30px;
+    font-family: 'Valorant-subtexto';
+
+}
+
+
+/* Header */
+header {
+    position: relative;
+    bottom: 50px;
+}
+
+/* Mapas */
+#Haven1:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
+#Icebox1:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
+#Corrode1:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
+#Bind1:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
+/* footer */
+footer {
+    position: relative;
+    top: 100px;
+    font-family: 'Valorant';
+    
+}
+
+#detalhes {
+    font-family: 'Valorant-subtexto';
+    font-size: 1.7em;
+}
