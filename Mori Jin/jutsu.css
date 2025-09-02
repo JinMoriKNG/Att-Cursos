@@ -1,0 +1,97 @@
+/* !INDEX2 */
+
+@font-face{
+    font-family: 'Valorant';
+    src: url('Mori Jin/Valorant Font.ttf') format('truetype')
+    
+}
+
+@font-face{
+    font-family: 'Valorant-subtexto';
+    src: url('Mori Jin/FontsFree-Net-Tungsten-Bold.ttf') format('truetype')
+}
+
+header {
+    font-family: 'Valorant';
+    font-size: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.884);
+    width: 1318px; 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+body {
+    justify-items: center;
+    margin-top: 40px;
+    background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7f7ed6e67906d7747be88529a305f6e78c06dea9-1920x1080.jpg?auto=format&fit=fill&q=80&w=1920);
+    background-size: cover;
+    color: white;
+}
+
+h1 {
+    font-family: 'Valorant';
+}
+
+.caixa {
+    background-color: rgba(12, 13, 13, 0.596);
+    padding: 50px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    width: 500px;
+    text-align: center;
+}
+
+
+
+/* Header */
+header {
+    position: relative;
+    bottom: 50px;
+}
+
+/* Mapas */
+
+
+#ImagemMapa {
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+#mapas {
+    font-size: 30px;
+    font-family: 'Valorant-subtexto';
+    text-align: center;
+    padding-right: 80px;   
+  
+}
+
+.Times:hover {
+    font-style: italic;
+    cursor: pointer;
+    font-size: 32px;
+    color: #F54550;
+}
+
+/* footer */
+footer {
+    position: relative;
+    top: 100px;
+    font-family: 'Valorant';
+}
+
+#detalhes {
+    font-family: 'Valorant-subtexto';
+    font-size: 1.7em;
+    text-align: center;
+    line-height: 50px;
+}
+
+#InfoMapa {
+    font-family: 'Valorant-subtexto';
+    font-size: 1.7em;
+    text-align: center;
+}
