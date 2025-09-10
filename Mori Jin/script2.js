@@ -18,19 +18,19 @@ async function selectMap(mapas){
         const chavesmapa = Object.keys(msgs).find(k => k===nomemaps);
 
         if (chavesmapa === "EDG"){
-            imagensMapa.src = '/Mori jin/EdwardChampions.jpg'
+            imagensMapa.src = 'EdwardChampions.jpg'
             InfoMapa.innerHTML = 'Mapa mais forte - Sunset'
         }
         else if (chavesmapa === 'EG') {
-            imagensMapa.src = '/Mori jin/EgChampions.jpg'
+            imagensMapa.src = 'EgChampions.jpg'
             InfoMapa.innerHTML = 'Mapa mais forte - Lotus'
         }
         else if (chavesmapa === 'LOUD') {
-            imagensMapa.src = '/Mori jin/LoudChampions.jpg'
+            imagensMapa.src = 'LoudChampions.jpg'
             InfoMapa.innerHTML = 'Mapa mais forte - Ascent'
         }
         else if (chavesmapa === 'ACD') {
-            imagensMapa.src = '/Mori jin/AcendChampions.jfif'
+            imagensMapa.src = 'AcendChampions.jfif'
             InfoMapa.innerHTML = 'Mapa mais forte - Bind'
         };
         
@@ -40,4 +40,5 @@ async function selectMap(mapas){
         document.getElementById("detalhes").innerHTML = "Erro: " + erro.message;
         console.error("Erro capturado: ", erro);
     }
+
 }
