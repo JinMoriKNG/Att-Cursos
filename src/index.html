@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTNM</title>
+    <style>
+        body{
+            align-items: center;
+            transition: background-color 1s;
+            color: white;
+            background-color: #BAAD73;
+            padding-top: 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            background-color: #2f3347;
+            text-align: center;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .box{
+            background: linear-gradient(to right, #29104D, #450A4C);
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        @media(max-width: 768px){
+            body{ font-size: 28px; padding-top: 50px;}
+            button{ font-size: 14px; padding: 8px 16px;}
+        }
+    </style>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000">
+</head>
+<body>
+    <div class="box">
+        <h1 id="title"><u></u></h1>
+        <p id="frase"></p>
+        <p id='horario'></p>
+        <p id='dia'></p>
+        <p id="diaU"></p>
+    </div>
+    <script>
+        function att(){
+            let color;
+            let msg;
+            const now = new Date();
+            const hora = now.getHours().toString().padStart(2, '0');
+            const mins = now.getMinutes().toString().padStart(2, '0');
+            const secs = now.getSeconds().toString().padStart(2,'0');
+            const ops = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+            const dataForm = now.toLocaleDateString('pt-BR', ops);
+            const diaUt = now.getDay();
+
+            if(hora >= 6 && hora < 12){
+                color = "linear-gradient(to right, #FAF561, #DEBB64"
+                msg = 'Bom Dia!'
+                frases = [
+                    'Tenha um bom dia!',
+                    'Aproveite bem seu dia.'
+                ]
+            } else if(hora >= 12 && hora < 18){
+                cor = '#FABA98'
+                msg = 'Boa Tarde!'
+                frases = [
+                    'Tenha uma boa tarde!',
+                    'Aproveite bem sua tarde.'
+                ]
+            } else if(hora >= 18 && hora < 0){
+                cor = '#7B6BFA'
+                msg = 'Boa Noite!'
+                frases = [
+                    'Tenha uma excelente noite.',
+                    'Espero que tenha um bom descanso.'
+                ]
+            } else{
+                cor = '#2A1A69'
+                msg = 'Já é Madrugada!'
+                frases = [
+                    'Já está muito tarde, é bom ir dormir.',
+                    'Você deveria ir descansar.'
+                ]
+            }
+
+            if(diaUt <= 5){
+                document.getElementById('diaU').innerHTML='Hoje é dia útil, foco nas atividades!';
+            } else{
+                document.getElementById('diaU').innerHTML='Finalmente é final de semana!';
+            }
+
+            document.body.style.background = color;
+            document.getElementById('title').innerHTML=msg;
+            document.getElementById('horario').innerHTML=hora+':'+mins+':'+secs;
+            document.getElementById('dia').innerHTML=dataForm;
+        }
+
+        let frases = [];
+        function trocarFrase(){
+            if(frases.length > 0){
+                const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+                document.getElementById('frase').innerHTML=fraseAleatoria;
+            }
+        }
+        att();
+        setInterval(att, 1000);
+        trocarFrase();
+        setInterval(trocarFrase, 5000);
+    </script>
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('service-worker.js')
+            .then(()=>console.log('Service Worker registrado'))
+            .catch(err=>console.log('Erro no SW:', err));
+        }
+    </script>
+</body>
+</html>
