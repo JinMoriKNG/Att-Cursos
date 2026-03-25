@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
+
+
+        .nav-tabs { background-color: #007bff; justify-content: center; padding: 0.5rem 0; }
+        .nav-tabs .nav-link { color: #FFD700; border: none; font-size: 1rem; }
+        .nav-tabs .nav-link.active { background-color: #0056b3; color: #FFD700; }
+        .nav-tabs .nav-link:hover { background-color: #0056b3; color: #FFD700; }
+        .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1); }
+        #carouselExample .card { font-size: 0.85rem; }
+        #carouselExample .card-title { font-size: 1rem; }
+        #carouselExample .btn { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+
+        :root {
+            --bs-dourado: #daa520;
+            --bs-dourado2: #ca9309;
+            --bs-dourado1: #FFD700;
+        }
+
+        p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        h5{
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.25rem;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: #03468e;
+        }
+        #logoVivaz {
+            font-family: 'Gravitas One', cursive;
+            font-size: 2rem;
+        }
+
+        #textPromo {
+            color: #ca9309;
+        }
+
+        .nav-link {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            background-color: rgb(117, 148, 243);
+            font-family: 'Gravitas One', cursive;
+        }
+
+        .btn:hover {
+            background-color: royalblue;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 99;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #backToTop:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="#" id="logoVivaz">VIVAZ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nós</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#PerfumMasc">Perfumes Masculinos</a></li>
+                            <li><a class="dropdown-item" href="#PerfumFem">Perfumes Femininos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#KitsDeso">Kits e Desodorantes</a></li>
+                            <li><a class="dropdown-item" href="#CremeHidra">Cremes Hidratantes</a></li>
+                            <li><a class="dropdown-item" href="#BodySplash">Body splash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
+        <h2 class="text-center" id="textPromo">Promoções Semanais</h2>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="perfumeMasc1.jpeg" class="card-img-top" alt="Produto 1">
+                                <div class="card-body border-3"><h5 class="card-title">Orla Azure</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="perfumeFem1.png" class="card-img-top" alt="Produto 2">
+                                <div class="card-body border-3"><h5 class="card-title">Néctar Dourado</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="perfumeFem2.png" class="card-img-top" alt="Produto 3">
+                                <div class="card-body border-3"><h5 class="card-title">Nuvem Floral</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="perfumeMasc2.png" class="card-img-top" alt="Produto 4">
+                                <div class="card-body border-3"><h5 class="card-title">Vulcão Haviano</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="perfumeMasc3.png" class="card-img-top" alt="Produto 5">
+                                <div class="card-body border-3"><h5 class="card-title">Loong Florestal</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="perfumeFem3.png" class="card-img-top" alt="Produto 6">
+                                <div class="card-body border-3"><h5 class="card-title">Vanilla Ice</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="kitNordeste.png" class="card-img-top" alt="Produto 7">
+                                <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text text-danger"><s>R$399,90</s></p><a href="#" class="btn btn-primary text-warning">R$199,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="kitSudeste.png" class="card-img-top" alt="Produto 8">
+                                <div class="card-body border-3"><h5 class="card-title">Produto 8</h5><p class="card-text text-danger"><s>R$399,90</s></p><a href="#" class="btn btn-primary text-warning">R$199,90</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="desoAmazonico.png" class="card-img-top" alt="Produto 5">
+                                <div class="card-body border-3"><h5 class="card-title">Loong Florestal</h5><p class="card-text text-danger"><s>R$35,90</s></p><a href="#" class="btn btn-primary text-warning">R$24,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="sangre.png" class="card-img-top" alt="Produto 6">
+                                <div class="card-body border-3"><h5 class="card-title">Sangria</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="desoOcean.png" class="card-img-top" alt="Produto 7">
+                                <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text text-danger"><s>R$35,90</s></p><a href="#" class="btn btn-primary text-warning">R$24,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="hidratanteroxo.png" class="card-img-top" alt="Produto 8">
+                                <div class="card-body border-3"><h5 class="card-title">Produto 8</h5><p class="card-text text-danger"><s>R$399,90</s></p><a href="#" class="btn btn-primary text-warning">R$199,90</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" id="buttonPrev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" id="buttonNext">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container my-4">
+        <h2 id="PerfumMasc">Perfumes Masculinos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeMasc1.jpeg" class="card-img-top" alt="Card 1a">
+                    <div class="card-body border-3"><h5 class="card-title">Orla Azure</h5><p class="card-text">Este perfume é uma ode ao frescor bruto e revigo...</p>
+                    </div><button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeMasc2.png" class="card-img-top" alt="Card 1b">
+                    <div class="card-body border-3"><h5 class="card-title">Vulcão Havaiano</h5><p class="card-text">Descrição do card 1B.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeMasc3.png" class="card-img-top" alt="Card 1c">
+                    <div class="card-body border-3"><h5 class="card-title">Loong Florestal</h5><p class="card-text">Descrição do card 1C.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="PerfumFem">Perfumes Femininos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeFem1.png" class="card-img-top" alt="Card 2a">
+                    <div class="card-body border-3"><h5 class="card-title">Néctar Dourado</h5><p class="card-text">Este perfume pertence à família Floral Frutal Gourmet. ...</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeFem2.png" class="card-img-top" alt="Card 2b">
+                    <div class="card-body border-3"><h5 class="card-title">Nuvem Floral</h5><p class="card-text"></p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeFem3.png" class="card-img-top" alt="Card 2c">
+                    <div class="card-body border-3"><h5 class="card-title">Vanilla Ice</h5><p class="card-text">Este perfume pertence à família Floral Frutal Aquático. Ele é o "vestido de seda" da perfumaria: leve, feminino, refrescante e irresistivelmente doce na medida certa.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="KitsDeso">Kits e Desodorantes</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="kitSudeste.png" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Card 3A</h5><p class="card-text">Descrição do card 3A.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$329,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="kitNordeste.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text">Descrição do card 3B.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$329,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="kitVermeloQuente.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Clair Obscure</h5><p class="card-text">Descrição do card 3C.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$359,90</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="desoNordeste.png" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Card 3A</h5><p class="card-text">Descrição do card 3A.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$129,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="desoAmazonico.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text">Descrição do card 3B.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="desoOcean.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Clair Obscure</h5><p class="card-text">Descrição do card 3C.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$359,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="CremeHidra">Cremes Hidratantes</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="sangre.png" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Sangria</h5><p class="card-text">Descrição do card 3A.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$129,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="mustarda.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text">Descrição do card 3B.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="hidratanteazul.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Clair Obscure</h5><p class="card-text">Descrição do card 3C.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$359,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="BodySplash">Body Splashs</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="bodysplashNorte.webp" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Card 3A</h5><p class="card-text">Descrição do card 3A.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$329,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="BodyBrasa.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Brasa</h5><p class="card-text">Descrição do card 3B.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$329,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="bodyRosa.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Clair Obscure</h5><p class="card-text">Descrição do card 3C.</p></div>
+                    <button type="button" class="btn btn-primary text-light m-3">R$359,90</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">© 2024 Vivaz Perfum. Todos os direitos reservados.</p>
+            <p class="mb-2">Contato: (31) 99100-3026</p>
+            <p class="mb-2">E-mail: vivaz@gmail.com.br</p>
+            <div>
+                <a href="https://wa.me/5531987654321" target="_blank" class="text-white me-3 text-decoration-none"><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/whatsapp--v1.png" alt="whatsapp--v1"/> WhatsApp</a>
+                <a href="https://www.instagram.com/" target="_blank" class="text-white me-3 text-decoration-none"><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/instagram-new--v1.png" alt="instagram-new--v1"/> Instagram</a>
+                <a href="https://www.tiktok.com/" target="_blank" class="text-white text-decoration-none"><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/tiktok.png" alt="tiktok"/> TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Voltar ao topo">▲</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carousel
+            var carouselEl = document.querySelector('#carouselExample');
+            if (carouselEl) {
+                var carousel = new bootstrap.Carousel(carouselEl, { interval: 3000, wrap: true });
+                document.getElementById('buttonPrev').addEventListener('click', function () { carousel.prev(); });
+                document.getElementById('buttonNext').addEventListener('click', function () { carousel.next(); });
+            }
+
+            // Back to Top Button
+            var backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
