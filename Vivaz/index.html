@@ -1,0 +1,728 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
+
+
+        .nav-tabs { background-color: #007bff; justify-content: center; padding: 0.5rem 0; }
+        .nav-tabs .nav-link { color: #FFD700; border: none; font-size: 1rem; }
+        .nav-tabs .nav-link.active { background-color: #0056b3; color: #FFD700; }
+        .nav-tabs .nav-link:hover { background-color: #0056b3; color: #FFD700; }
+        .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1); }
+        #carouselExample .card { font-size: 0.85rem; }
+        #carouselExample .card-title { font-size: 1rem; }
+        #carouselExample .btn { padding: 0.4rem 0.6rem; font-size: 0.8rem;}
+
+        :root {
+            --bs-dourado: #daa520;
+            --bs-dourado2: #ca9309;
+            --bs-dourado1: #FFD700;
+        }
+
+        p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        h5{
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.25rem;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: #03468e;
+        }
+        #logoVivaz {
+            font-family: 'Gravitas One', cursive;
+            font-size: 2rem;
+        }
+
+        #textPromo {
+            color: #ca9309;
+        }
+
+        .nav-link {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+        }
+
+        #iconCart {
+            background-color: #007bff00;
+            border: none;
+        }
+
+        #itensCart {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        /* Shopping Cart Styles */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: #f8f9fa;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem; ;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-footer {
+            padding: 1rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .cart-total {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;;
+        }
+
+        #checkoutBtn {
+            background-color: #007bff;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        #checkoutBtn:hover {
+            background-color: #0056b3;
+        }
+        
+        #cartTotal {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            .cart-sidebar.open {
+                right: 0;
+            }
+        }
+
+        .cart-open {
+            margin-right: 400px;
+            transition: margin-right 0.3s ease;
+        }
+
+        @media (max-width: 576px) {
+            .cart-open {
+                margin-right: 0;
+            }
+        }
+        
+        #clearCart {
+            background-color: #ffd900dd;
+            color: black;
+            /* background-color: white;
+            color: red;
+            font-family: 'DM Sans', sans-serif; */
+        }
+
+        #clearCart:hover {
+            background-color: var(--bs-dourado);
+            /* background-color: #ba1f1f;
+            color: white; */
+        }
+
+        .btn {
+            background-color: white;
+            font-family: 'Gravitas One', cursive;
+        }
+
+        .btn:hover {
+            background-color: royalblue;
+        }
+
+         #comprasperfumes .btn-primary {
+            background-color: royalblue;
+            font-family: 'Gravitas One', cursive;
+        }
+
+        #comprasperfumes .btn-primary:hover{ 
+            background-color: rgba(65, 105, 225, 0.794);
+        }
+
+        #iconCart:hover {
+            background-color: rgb(5, 61, 145);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 99;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #backToTop:hover {
+            background-color: #0056b3;
+        }
+
+        #carouselExample {
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+
+        #carouselExample .carousel-control-prev {
+            left: -60px;
+        }
+
+        #carouselExample .carousel-control-next {
+            right: -60px;
+        }
+
+        @media (max-width: 768px) {
+            #carouselExample {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            #carouselExample .carousel-control-prev,
+            #carouselExample .carousel-control-next {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-1">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="https://youtu.be/dQw4w9WgXcQ" id="logoVivaz">VIVAZ</a>
+            <button id="iconCart" class="btn btn-primary" type="button">
+                <i class="bi bi-cart"></i>
+                <span id="itensCart" class="">0</span>
+            </button>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-5">
+                    <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nós</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#PerfumMasc">Perfumes Masculinos</a></li>
+                            <li><a class="dropdown-item" href="#PerfumFem">Perfumes Femininos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#KitsDeso">Kits e Desodorantes</a></li>
+                            <li><a class="dropdown-item" href="#CremeHidra">Cremes Hidratantes</a></li>
+                            <li><a class="dropdown-item" href="#BodySplash">Body splash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="text-white">Carrinho de Compras</h2>
+            <button id="closeCart" class="btn-close" aria-label="Close"></button>
+        </div>
+        <div id="cartItems" class="cart-items bg-white">
+            <!-- Items will be added here dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button id="checkoutBtn" class="btn btn-success w-100 fs-4 mb-2 ">Finalizar Compra</button>
+            <button id="clearCart" class="btn btn-warning w-100">Limpar Carrinho</button>
+        </div>
+    </div>    
+
+    <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
+        <h2 class="text-center" id="textPromo">Promoções Semanais</h2>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="perfumeMasc1.jpeg" class="card-img-top" alt="Produto 1">
+                                <div class="card-body border-3"><h5 class="card-title">Orla Azure</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="perfumeFem1.png" class="card-img-top" alt="Produto 2">
+                                <div class="card-body border-3"><h5 class="card-title">Néctar Dourado</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="perfumeFem2.png" class="card-img-top" alt="Produto 3">
+                                <div class="card-body border-3"><h5 class="card-title">Nuvem Floral</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="perfumeMasc2.png" class="card-img-top" alt="Produto 4">
+                                <div class="card-body border-3"><h5 class="card-title">Vulcão Haviano</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="perfumeMasc3.png" class="card-img-top" alt="Produto 5">
+                                <div class="card-body border-3"><h5 class="card-title">Loong Florestal</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="perfumeFem3.png" class="card-img-top" alt="Produto 6">
+                                <div class="card-body border-3"><h5 class="card-title">Vanilla Ice</h5><p class="card-text text-danger"><s>R$159,90</s></p><a href="#" class="btn btn-primary text-warning">R$119,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="kitNordeste.png" class="card-img-top" alt="Produto 7">
+                                <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text text-danger"><s>R$329,90</s></p><a href="#" class="btn btn-primary text-warning">R$199,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="kitSudeste.png" class="card-img-top" alt="Produto 8">
+                                <div class="card-body border-3"><h5 class="card-title">Asimilación</h5><p class="card-text text-danger"><s>R$329,90</s></p><a href="#" class="btn btn-primary text-warning">R$199,90</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="desoAmazonico.png" class="card-img-top" alt="Produto 5">
+                                <div class="card-body border-3"><h5 class="card-title">Agramon</h5><p class="card-text text-danger"><s>R$35,90</s></p><a href="#" class="btn btn-primary text-warning">R$24,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="sangre.png" class="card-img-top" alt="Produto 6">
+                                <div class="card-body border-3"><h5 class="card-title">Sangria</h5><p class="card-text text-danger"><s>R$79,90</s></p><a href="#" class="btn btn-primary text-warning">R$49,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="desoOcean.png" class="card-img-top" alt="Produto 7">
+                                <div class="card-body border-3"><h5 class="card-title">Aequor</h5><p class="card-text text-danger"><s>R$35,90</s></p><a href="#" class="btn btn-primary text-warning">R$24,90</a></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <img src="hidratanteroxo.png" class="card-img-top" alt="Produto 8">
+                                <div class="card-body border-3"><h5 class="card-title">Obsidian</h5><p class="card-text text-danger"><s>R$79,90</s></p><a href="#" class="btn btn-primary text-warning">R$49,90</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" id="buttonPrev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" id="buttonNext">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container my-4" id="comprasperfumes">
+        <h2 id="PerfumMasc">Perfumes Masculinos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeMasc1.jpeg" class="card-img-top" alt="Card 1a">
+                    <div class="card-body border-3"><h5 class="card-title">Orla Azure</h5><p class="card-text">Este perfume é uma ode ao frescor bruto e revigorante...</p>
+                    </div><button type="button" class="btn btn-primary text-warning m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeMasc2.png" class="card-img-top" alt="Card 1b">
+                    <div class="card-body border-3"><h5 class="card-title">Vulcão Havaiano</h5><p class="card-text">Uma fragrância exótica e revitalizante. Um perfume quente e...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeMasc3.png" class="card-img-top" alt="Card 1c">
+                    <div class="card-body border-3"><h5 class="card-title">Loong Florestal</h5><p class="card-text">Este perfume te levará a um mundo de aromas naturais e refrescantes...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$159,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="PerfumFem">Perfumes Femininos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeFem1.png" class="card-img-top" alt="Card 2a">
+                    <div class="card-body border-3"><h5 class="card-title">Néctar Dourado</h5><p class="card-text">Este perfume pertence à família Floral Frutal Gourmet. ...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeFem2.png" class="card-img-top" alt="Card 2b">
+                    <div class="card-body border-3"><h5 class="card-title">Nuvem Floral</h5><p class="card-text">Uma nuvem de aromas delicados e refrescantes. Um perfume leve e feminino...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$159,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="perfumeFem3.png" class="card-img-top" alt="Card 2c">
+                    <div class="card-body border-3"><h5 class="card-title">Vanilla Ice</h5><p class="card-text">Este perfume pertence à família Floral Frutal Aquático. Ele é o "vestido de...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$159,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="KitsDeso">Kits e Desodorantes</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="kitSudeste.png" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Asimilación</h5><p class="card-text">Um kit completo com os melhores aromas do sudeste...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$329,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="kitNordeste.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Floretérea</h5><p class="card-text">Um kit completo com aromas para aqueles que ama a natureza...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$329,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="kitVermeloQuente.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Clair Obscure</h5><p class="card-text">Um kit de aromas engimáticos, um desafio de personalidade....</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$359,90</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="desoNordeste.png" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Desodorante Flos</h5><p class="card-text">Um desodorante suave e duradouro, ideal para o dia a dia...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$35,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="desoAmazonico.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Desodorante Agramon</h5><p class="card-text">Um desodorante potente e duradouro, ideal para caminhadas...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$35,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="desoOcean.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Desodorante Aequor</h5><p class="card-text">Um desodorante refrescante e duradouro, ideal para longos dias de sol...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$35,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="CremeHidra">Cremes Hidratantes</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="sangre.png" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Sangria</h5><p class="card-text">Um creme hidratante perfeito para aqueles que buscam...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$79,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="mustarda.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Mustourar</h5><p class="card-text">Um creme hidratante potente, ideal para peles secas...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$79,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="hidratanteazul.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Aequor</h5><p class="card-text">Diretamente da nossa linha oceânica, Aequor volta como um creme...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$79,90</button>
+                </div>
+            </div>
+        </div>
+        <h2 id="BodySplash">Body Splashs</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="bodysplashNorte.webp" class="card-img-top" alt="Card 3a">
+                    <div class="card-body border-3"><h5 class="card-title">Flos</h5><p class="card-text">Um body splash com um aroma natural, refrescante e...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$89,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="BodyBrasa.png" class="card-img-top" alt="Card 3b">
+                    <div class="card-body border-3"><h5 class="card-title">Brasa</h5><p class="card-text">Um body splash com um aroma intenso, ideal para aqueles que buscam...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$89,90</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3 border-2">
+                    <img src="bodyRosa.png" class="card-img-top" alt="Card 3c">
+                    <div class="card-body border-3"><h5 class="card-title">Spatium</h5><p class="card-text">Um body splash de aroma enigmático, ideal para criar uma experiência única...</p></div>
+                    <button type="button" class="btn btn-primary text-warning m-3">R$89,90</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">© 2024 Vivaz Perfum. Todos os direitos reservados.</p>
+            <p class="mb-2">Contato: (31) 99100-3026</p>
+            <p class="mb-2">E-mail: vivaz@gmail.com.br</p>
+            <div>
+                <a href="https://wa.me/5531987654321" target="_blank" class="text-white me-3 text-decoration-none"><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/whatsapp--v1.png" alt="whatsapp--v1"/> WhatsApp</a>
+                <a href="https://www.instagram.com/" target="_blank" class="text-white me-3 text-decoration-none"><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/instagram-new--v1.png" alt="instagram-new--v1"/> Instagram</a>
+                <a href="https://www.tiktok.com/" target="_blank" class="text-white text-decoration-none"><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/tiktok.png" alt="tiktok"/> TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Voltar ao topo">▲</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carousel
+            var carouselEl = document.querySelector('#carouselExample');
+            if (carouselEl) {
+                var carousel = new bootstrap.Carousel(carouselEl, { interval: 3000, wrap: true });
+                document.getElementById('buttonPrev').addEventListener('click', function () { carousel.prev(); });
+                document.getElementById('buttonNext').addEventListener('click', function () { carousel.next(); });
+            }
+
+            // Back to Top Button
+            var backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Shopping Cart Functionality
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartIcon = document.getElementById('iconCart');
+            const cartCount = document.getElementById('itensCart');
+            const closeCart = document.getElementById('closeCart');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const clearCartBtn = document.getElementById('clearCart');
+
+            let cart = [];
+
+            // Toggle cart
+            cartIcon.addEventListener('click', () => {
+                cartSidebar.classList.toggle('open');
+                document.body.classList.toggle('cart-open');
+            });
+
+            closeCart.addEventListener('click', () => {
+                cartSidebar.classList.remove('open');
+                document.body.classList.remove('cart-open');
+            });
+
+            // Add to cart
+            document.querySelectorAll('.btn.btn-primary.text-warning').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = button.closest('.card');
+                    const name = card.querySelector('.card-title').textContent;
+                    const price = button.textContent.replace('R$', '').replace(',', '.').trim();
+                    addToCart(name, parseFloat(price));
+                });
+            });
+
+            function addToCart(name, price) {
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    // Find the price dynamically if not provided
+                    if (!price) {
+                        const card = document.querySelector(`[data-product-name="${name}"]`);
+                        if (card) {
+                            const priceText = card.querySelector('.btn.btn-primary.text-warning').textContent;
+                            price = parseFloat(priceText.replace('R$', '').replace(',', '.').trim());
+                        }
+                    }
+                    cart.push({ name, price, quantity: 1 });
+                }
+                updateCart();
+            }
+
+            function removeFromCart(name) {
+                const itemIndex = cart.findIndex(item => item.name === name);
+                if (itemIndex > -1) {
+                    if (cart[itemIndex].quantity > 1) {
+                        cart[itemIndex].quantity--;
+                    } else {
+                        cart.splice(itemIndex, 1);
+                    }
+                    updateCart();
+                }
+            }
+
+            function updateCart() {
+                cartItems.innerHTML = '';
+                let total = 0;
+                let itemCount = 0;
+
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    itemCount += item.quantity;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <div class="cart-item-info">
+                            <div><strong>${item.name}</strong></div>
+                            <div>R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(itemDiv);
+                });
+
+                cartTotal.textContent = total.toFixed(2).replace('.', ',');
+                cartCount.textContent = itemCount;
+            }
+
+            window.changeQuantity = function(index, delta) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+                updateCart();
+            };
+
+            window.removeFromCart = removeFromCart;
+
+            // Checkout
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    alert('Seu carrinho está vazio!');
+                } else {
+                    alert(`Compra finalizada! Total: R$ ${cartTotal.textContent}`);
+                    cart = [];
+                    updateCart();
+                    cartSidebar.classList.remove('open');
+                    document.body.classList.remove('cart-open');
+                }
+            });
+
+            // Clear cart
+            clearCartBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    alert('Seu carrinho já está vazio!');
+                } else {
+                    cart = [];
+                    updateCart();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
