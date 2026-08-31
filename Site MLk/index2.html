@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        @font-face {
+            font-family: 'MLKFont';
+            src: url('wolfsbane2ii.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'MLKFont', sans-serif;
+        }
+
+        .carousel-inner {
+            min-height: 100vh;
+            font-family: 'MLKFont', sans-serif;
+        }
+
+        .carousel-item{
+            min-height: 100vh;
+            text-align: center;
+            padding: 4rem 3.5rem 3rem;
+        }
+
+        .carousel-item.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-item img, .card img {
+            width: 100%;
+            max-width: 32rem;
+            height: auto;
+            max-height: 62vh;
+            margin: 0 auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .card {
+            background-color: #3a3a3a;
+            width: min(100%, 46rem);
+            margin: 0 auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-container .card {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .cards-container .card a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 991.98px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .carousel-item {
+                padding: 3.5rem 2.75rem 2rem;
+            }
+
+            .carousel-item img {
+                max-height: 48vh;
+            }
+
+            .card h2,
+            .card h4 {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column justify-content-center align-items-center" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="false">
+                <div class="card rounded-2">
+                    <a href="https://youtu.be/lx_m3I3K90Y?si=aFkIETHTPO1nBWz6"><img src="MLK_Jr.jfif" alt="IMG_MLK" class="mt-4 p-3" ></a>
+                    <h2 class="text-center m-2 text-white">I Have a Dream</h2>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="false">
+                <div class="card rounded-2">
+                    <a href="https://youtu.be/QNJL6nfu__Q?si=s6xWMy-NlklTM8hM"><img src="MJ-King.jfif" alt="IMG_Micheal_Jackson" class="mt-4 p-3"></a>
+                    <h3 class="text-center m-2 text-white">All i want say is that they don't care about us.</h3>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="false">
+                <div class="card rounded-2">
+                    <a href="https://youtu.be/uMwbxI_EO4A?si=8mhknV1y2-xU9Et9"><img src="Emicida.jfif" alt="IMG_Emicida" class="mt-4 p-3"></a>
+                    <h4 class="text-center m-2 text-white">Que a gente saiba que a liberdade não é permanente,<br> a gente sempre tem que lutar por ela.</h4>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="false">
+                <div class="card rounded-2">
+                    <a href="https://youtu.be/lWFuYc4yOwc?si=0cY-nD5plW9gmWh0"><img src="ChadwickBlackPhanter.jfif" alt="IMG_Chadwick_Boseman" class="mt-4 p-3"></a>
+                    <h4 class="text-center m-2 text-white">O mundo está mudando.<br> Em breve só existirão conquistados e conquistadores.</h4>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="false">
+                <div class="card rounded-2">
+                    <a href="https://youtu.be/oHBkKu0EkVM?si=OHt0c-gGiOeU5qF7"><img src="PanterasNegras.png" alt="IMG_Black_Panthers" class="mt-4 p-3"></a>
+                    <h4 class="text-center m-2 text-white">Não combateremos o capitalismo com capitalismo negro,<br> mas com socialismo.</h4>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <section class="cards-container">
+        <div class="card rounded-2">
+            <a href="https://youtu.be/RM7lw0Ovzq0?si=zQxuxwlKqfIKI0O3"><img src="Jay-z.jfif" alt="IMG_Jay-z" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">O.J. Like, I'm not black i'm O.J... Okay...</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/Ri-eF5PJ2X0?si=z2Z2cka0m_Y32ra-"><img src="Cesar-MC.jfif" alt="IMG_Cesar_MC" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">Ciranda cirandinha sirene vem me enquadrar,<br> me mandando dar meia-volta sem ao menos me explicar.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/vCk4H_8TCBo?si=x2wkZnw573VVFrZr"><img src="Racionais.jfif" alt="IMG_Racionais_MC's" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">A maquina do desemprego, fabrica criminoso.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/LcldH2JNN8U?si=VKnXorIZ20mZIlKM"><img src="Nanda-Tsunami.jfif" alt="IMG_Nanda_Tsunami" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">Por que cê ta miando? Isso não é coisa de homem.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/vau8mq3KcRw?si=Lh_oybaFZ2N6RWav"><img src="Rincon-Sapiência.jfif" alt="IMG_Rincon_Sapiência" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">Quente que nem chapinho no crespo, não <br> crespos estão se armando.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/jDI5rZCntPc?si=MfboLxRI7zp8HOOT"><img src="Chico-Science.webp" alt="IMG_Chico_Science" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">Posso sair daqui, pra me organizar <br> Posso sair daqui, pra desorganizar.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/76kS_7qanH8?si=t0A0tZgrnHjXpk2R"><img src="Rosa-Parks.jfif" alt="IMG_Rosa_Parks" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">O único cansaço que eu tinha era estar cansada de ceder.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/6AvUP-IoYEo?si=6P9BDVIWrjkaXADm"><img src="Carolina-Maria.jfif" alt="IMG_Carolina_Maria_de_Jesus" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">Quando o homem decidir reformar a sua consciência,<br> o mundo tomará outro roteiro.</h4>
+        </div>
+        <div class="card rounded-2">
+            <a href="https://youtu.be/Ktlj5JnqwQE?si=ykEEINmgudA5srHD"><img src="Angela Davis.jfif" alt="IMG_Angela_Davis" class="mt-4 p-3"></a>
+            <h4 class="text-center m-2 text-white">Em uma sociedade racista, não basta não ser racista,<br> é necessário ser antirracista.</h4>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        if (!sessionStorage.getItem('autentication')) {
+            window.location.href = 'index.html';
+        }
+
+        const nome = localStorage.getItem('name');
+        const sobrenome = localStorage.getItem('sobrenome');
+        document.getElementById('output').innerText = `Nome: ${nome} ${sobrenome}`;
+    </script>
+</body>
+</html>
